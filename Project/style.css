@@ -1,14 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,600&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
 section {
     text-align: center;
+    font-size: 14px;
+}
+
+h1 {
+    font-weight: 600;
+    padding-top: 2em;
+   
 }
 
 input {
     width: 500px;
-    height: 25px;
+    height: 20px;
+    
 }
 
 ul {
     list-style: none;
+    padding: 20px;
+}
+
+li {
+    padding: 5px;
+    height: 20px;
+}
+
+button {
+    margin-left: 15px;
+    width: 70px;
+    height: 2.5em;
+    background-color: #EDAFB8;
+    border: none;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+  ul button {
+    width: 40px;
+    
 }
 
 .delete {

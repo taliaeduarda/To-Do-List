@@ -1,15 +1,15 @@
 'use strict'
 
-let addButton = document.getElementById("add");
-let input = document.getElementById("inputValue");
-let ul = document.querySelector("ul");
+let addButton = document.getElementById("add")
+let input = document.getElementById("inputValue")
+let ul = document.querySelector("ul")
 
 function inputLength(){
-	return input.value.length;
+	return input.value.length
 } 
 
 function listLength(){
-	return item.length;
+	return item.length
 }
 
 function createListElement() {

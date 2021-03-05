@@ -1,73 +1,102 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,600&display=swap');
-
-
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
-    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    background-color: #E2D0BE;
+    color:white;
 }
 
-section {
-    text-align: center;
-    font-size: 14px;
+header {
+    font-size: 1.3em;
 }
 
-h1 {
-    font-weight: 600;
-    padding-top: 2em;
+header, form {
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-button {
-    margin-left: 15px;
-    width: 70px;
-    height: 2.5em;
-    background-color: #EDAFB8;
+form input, form button {
+    padding: 0.5em;
+    font-size: 1em;
     border: none;
-    color: white;
-    font-weight: 700;
-    cursor: pointer;
+    background: white;
 }
 
 input {
-    margin-top: 20px;
-    min-width: 50%;
-    height: 35px;
-    border: 1px solid;
-    border-radius: 5px;
+    min-width: 50vh;
 }
 
-ul {
+form button {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background: #E2D0BE;
+    color: white;
+}
+
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-list {
+    min-width: 30%;
     list-style: none;
-    padding: 20px;
 }
 
-li {
-    padding: 5px 10px;
-    border: 2px solid #EDAFB8;
-    border-radius: 10px;
-    width: 50%;
-    margin: 5px auto;;
-    text-transform: capitalize;
-	font-weight: 400;
+.todo {
+    margin: 0.5rem;
+    background: white;
+    color: black;
+    font-size: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s ease;
 }
 
-li:hover {
-    
+.todo li {
+    flex: 1;
 }
 
-ul button {
-	border: none;
-	float: right;
-	font-weight: 800;
-    color: #EDAFB8;
-    background-color: white;
-    height: fit-content;
+.trash-btn, .complete-btn {
+    background: #ccb6a0f8;
+    color: white;
+    border: none;
+    padding: 0.7em;
+    cursor: pointer;
+    font-size: 0.9em;
 }
 
+.complete-btn {
+    background: #84A59D;
+}
 
-.delete {
-    display: none;
+.todo-item {
+    padding: 0rem 0.5rem;
+}
+
+.fa-trash,
+.fa-check {
+    pointer-events: none;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.fall {
+    transform: translateY(8rem) rotateZ(20deg);
+    opacity: 0;
 }

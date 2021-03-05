@@ -1,42 +1,61 @@
-'use strict'
+// selectors
+const todoInput = document.querySelector('.todo-input')
+const todoButton = document.querySelector('.todo-button')
+const todoList = document.querySelector('.todo-list')
 
-let addButton = document.getElementById("add")
-let input = document.getElementById("inputValue")
-let ul = document.querySelector("ul")
+// Event Listeners
+todoButton.addEventListener('click', addTodo)
+todoList.addEventListener('click', deleteCheck)
 
-function inputLength(){
-	return input.value.length
-} 
+// Functions 
+function addTodo(event) {
+    // Prevent form from submitting
+    event.preventDefault()
+    //Todo DIV
+    const todoDiv = document.createElement('div')
+    todoDiv.classList.add('todo')
+    // Create LI
+    const newTodo = document.createElement('li')
+    newTodo.innerHTML = todoInput.value
+    newTodo.classList.add('todo-item')
+    todoDiv.appendChild(newTodo)
 
-function listLength(){
-	return item.length
+    // Check mark button
+    const completeButton = document.createElement('button')
+    completeButton.innerHTML = '<i class="fas fa-check"></i>'
+    completeButton.classList.add('complete-btn')
+    todoDiv.appendChild(completeButton)
+
+    // Trash mark button
+    const trashButton = document.createElement('button')
+    trashButton.innerHTML = '<i class="fas fa-trash"></i>'
+    trashButton.classList.add('trash-btn')
+    todoDiv.appendChild(trashButton)
+
+    // Append to list
+    todoList.appendChild(todoDiv)
+    //Clear todo Input value
+    todoInput.value = ''
 }
 
-function createListElement() {
-	let li = document.createElement("li")
-	li.appendChild(document.createTextNode(input.value))
-	ul.appendChild(li)
-	input.value = ""
+function deleteCheck(e) {
+    const item = e.target
+    // Delete todo
+    if(item.classList[0] === 'trash-btn') {
+        const todo = item.parentElement
+        // Animation
+        todo.classList.add('fall')
+        todo.addEventListener('transitionend', function() {
+            todo.remove()
+        }) 
+    }
 
-	// start and delete button
-	let deleteButton = document.createElement("button");
-	deleteButton.appendChild(document.createTextNode("x"));
-	li.appendChild(deleteButton);
-	deleteButton.addEventListener("click", deleteListItem);
-
-	// add a delete class
-	function deleteListItem(){
-		li.classList.add("delete")
-	}
+    // Check mark
+    if(item.classList[0] === 'complete-btn') {
+        const todo = item.parentElement
+        todo.classList.toggle('completed')
+    }
 }
-
-function addListAfterClick(){
-	if (inputLength() > 0) { 
-		createListElement()
-	}
-}
-
-addButton.addEventListener("click", addListAfterClick);
 
 
 
